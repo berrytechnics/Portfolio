@@ -11,6 +11,28 @@
   animation: fadeInUp 1s ease-out;
 }
 
+.hero-avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.avatar-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
 .hero-title {
   display: flex;
   flex-direction: column;
@@ -101,6 +123,11 @@
 }
 
 @media (max-width: 768px) {
+  .avatar-image {
+    width: 150px;
+    height: 150px;
+  }
+  
   .hero-name {
     font-size: 2.5rem;
   }

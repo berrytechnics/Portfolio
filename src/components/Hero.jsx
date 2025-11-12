@@ -4,6 +4,13 @@ function Hero({ scrollToSection }) {
   return (
     <section id="hero" className="hero">
       <div className="hero-content">
+        <div className="hero-avatar">
+          <img 
+            src="https://media.licdn.com/dms/image/v2/D5635AQGs5cHwK9dGMg/profile-framedphoto-shrink_200_200/B56ZpRCbiUIYAY-/0/1762296183192?e=1763575200&v=beta&t=Vr9GuucTKgZamH48asJHaGKmJhN8pE85RfZL-giSsOA" 
+            alt="J. Kyle Berry"
+            className="avatar-image"
+          />
+        </div>
         <h1 className="hero-title">
           <span className="hero-greeting">Hi, I'm</span>
           <span className="hero-name">J. Kyle Berry</span>
