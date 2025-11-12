@@ -12,9 +12,9 @@ function Contact() {
               opportunities to be part of your visions. Feel free to reach out!
             </p>
             <div className="contact-methods">
-              <a href="mailto:kyle@berrytechnics.com" className="contact-link">
+              <a href="mailto:berrytechnics@gmail.com" className="contact-link">
                 <span className="contact-icon">✉</span>
-                <span>kyle@berrytechnics.com</span>
+                <span>berrytechnics@gmail.com</span>
               </a>
               <a href="https://github.com/berrytechnics" className="contact-link" target="_blank" rel="noopener noreferrer">
                 <span className="contact-icon">🔗</span>
