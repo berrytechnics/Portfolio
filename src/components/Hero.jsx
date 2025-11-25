@@ -6,7 +6,7 @@ function Hero({ scrollToSection }) {
       <div className="hero-content">
         <div className="hero-avatar">
           <img 
-            src="https://media.licdn.com/dms/image/v2/D5635AQGs5cHwK9dGMg/profile-framedphoto-shrink_200_200/B56ZpRCbiUIYAY-/0/1762296183192?e=1763575200&v=beta&t=Vr9GuucTKgZamH48asJHaGKmJhN8pE85RfZL-giSsOA" 
+            src="https://scontent-dfw5-2.xx.fbcdn.net/v/t1.6435-9/66262397_100211571298174_1657509595574173696_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=t9cBEPRHCncQ7kNvwFllNfW&_nc_oc=AdkPe8-zQhLCRKCxTw9dHq_YfmNnDo8Yg06Rc-tQRA1GzhOah3obrawJU_OKqDzdGSk&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=gRHmqlzVWVJ2IqVq3GiUoA&oh=00_AfjmIAOgo9jDXE9nxvcGrxzdCF2m0tNXXIqzAFmGtlRJ3A&oe=694C75ED" 
             alt="J. Kyle Berry"
             className="avatar-image"
           />
