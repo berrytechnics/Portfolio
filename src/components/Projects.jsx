@@ -1,4 +1,7 @@
 import './Projects.css'
+import techrxImage from '../assets/images/techrxrepair.png'
+import figueroasImage from '../assets/images/figueroasrecreation.png'
+import repairtixImage from '../assets/images/repairtix.png'
 
 function Projects() {
   const professionalProjects = [
@@ -37,6 +40,55 @@ function Projects() {
       technologies: ['PHP', 'JavaScript', 'MySQL', 'A/B Testing'],
       impact: '$10,000 monthly recurring revenue increase',
       proprietary: true,
+    },
+  ]
+
+  const clientProjects = [
+    {
+      id: 1,
+      title: 'TechRx Repair',
+      company: 'Client Project',
+      description: 'Built a modern, responsive WordPress website for Tulsa\'s on-demand tech repair service. Features include service booking, quote system, protection plans, and a blog. Designed to showcase fast, reliable repair services with emphasis on customer trust and professional service.',
+      technologies: ['WordPress', 'PHP', 'Responsive Design', 'E-commerce Integration'],
+      website: 'https://www.techrxrepair.com/',
+      image: techrxImage,
+    },
+    {
+      id: 2,
+      title: 'Figueroa\'s Recreation',
+      company: 'Client Project',
+      description: 'Developed a commercial playground equipment website using Astro and React. Features product galleries, quote system, and comprehensive service information. Designed for schools, parks, and community centers with focus on safety, quality, and custom solutions.',
+      technologies: ['Astro', 'React', 'TypeScript', 'Responsive Design'],
+      website: 'https://figueroasrecreation.pages.dev/',
+      image: figueroasImage,
+    },
+  ]
+
+  const products = [
+    {
+      id: 1,
+      title: 'RepairTix',
+      description: 'A comprehensive SaaS platform for repair businesses to manage operations end-to-end. Features include customer management with service history, repair ticketing with status tracking and technician assignment, professional invoicing with payment tracking, inventory management with automated reorder alerts, purchase order workflows, multi-location support with data isolation, role-based access control (Admin, Manager, Technician, Front Desk), reporting dashboards with analytics, asset tracking for devices and equipment, and inventory transfers between locations.',
+      technologies: [
+        'Next.js 14',
+        'TypeScript',
+        'Node.js',
+        'Express',
+        'PostgreSQL',
+        'Kysely',
+        'Tailwind CSS',
+        'React Hook Form',
+        'Zod',
+        'Zustand',
+        'Chart.js',
+        'Docker',
+        'JWT',
+        'Jest',
+        'Playwright'
+      ],
+      website: 'https://repairtix.com',
+      comingSoon: true,
+      image: repairtixImage,
     },
   ]
 
@@ -90,6 +142,95 @@ function Projects() {
       <div className="section-content">
         <h2 className="section-title">Featured Projects</h2>
         
+        <div className="projects-section">
+          <h3 className="projects-subtitle">Products</h3>
+          <p className="projects-subtitle-description">
+            Software products and platforms I'm building
+          </p>
+          <div className="projects-grid">
+            {products.map((project) => (
+              <div key={project.id} className={`project-card project-card-product ${project.id === 1 ? 'project-card-full-width' : ''}`}>
+                {project.image && (
+                  <div className="project-image-container">
+                    <img src={project.image} alt={project.title} className="project-image" />
+                  </div>
+                )}
+                <div className="project-header">
+                  <div className="project-title-row">
+                    <h3 className="project-title">{project.title}</h3>
+                    {project.comingSoon && (
+                      <span className="coming-soon-badge">Coming Soon</span>
+                    )}
+                  </div>
+                </div>
+                <p className="project-description">{project.description}</p>
+                <div className="project-technologies">
+                  {project.technologies.map((tech, index) => (
+                    <span key={index} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="project-links">
+                  <a 
+                    href={project.website} 
+                    className="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {project.comingSoon ? 'Learn More' : 'Visit Website'}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="projects-section">
+          <h3 className="projects-subtitle">Client Work</h3>
+          <p className="projects-subtitle-description">
+            Websites and applications built for clients
+          </p>
+          <div className="projects-grid">
+            {clientProjects.map((project) => (
+              <div key={project.id} className="project-card project-card-client">
+                {project.image && (
+                  <div className="project-image-container">
+                    <img src={project.image} alt={project.title} className="project-image" />
+                  </div>
+                )}
+                <div className="project-header">
+                  <div className="project-title-row">
+                    <h3 className="project-title">{project.title}</h3>
+                    <span className="client-badge">Client Work</span>
+                  </div>
+                  {project.company && (
+                    <p className="project-company">{project.company}</p>
+                  )}
+                </div>
+                <p className="project-description">{project.description}</p>
+                <div className="project-technologies">
+                  {project.technologies.map((tech, index) => (
+                    <span key={index} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="project-links">
+                  <a 
+                    href={project.website} 
+                    className="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Website
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="projects-section">
           <h3 className="projects-subtitle">Professional Work</h3>
           <p className="projects-subtitle-description">
