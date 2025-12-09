@@ -11,6 +11,11 @@ function NestedShape({
 }) {
   const nestedRef = useRef()
   const nestedRotation = useRef({ x: 0, y: 0, z: 0 })
+  const glowMaterialRef = useRef()
+  const mainMaterialRef = useRef()
+  const flickerTimer = useRef(Math.random() * 4)
+  const flickerIntensity = useRef(1.0)
+  const flickerTarget = useRef(1.0)
 
   useFrame((state, delta) => {
     if (nestedRef.current) {
@@ -24,6 +29,42 @@ function NestedShape({
       nestedRef.current.rotation.x = nestedRotation.current.x - mousePosition.y * rotationInfluence
       nestedRef.current.rotation.y = nestedRotation.current.y - mousePosition.x * rotationInfluence
       nestedRef.current.rotation.z = nestedRotation.current.z
+    }
+
+    // Neon flicker effect
+    flickerTimer.current -= delta
+    if (flickerTimer.current <= 0) {
+      // Random flicker - sometimes dim, sometimes bright, sometimes off
+      const flickerType = Math.random()
+      if (flickerType < 0.1) {
+        // Quick dim (higher minimum)
+        flickerTarget.current = 0.6 + Math.random() * 0.2
+      } else if (flickerType < 0.2) {
+        // Quick bright flash
+        flickerTarget.current = 1.2 + Math.random() * 0.5
+      } else if (flickerType < 0.25) {
+        // Very brief dim (not off, just dimmer)
+        flickerTarget.current = 0.5 + Math.random() * 0.2
+      } else {
+        // Normal brightness
+        flickerTarget.current = 0.8 + Math.random() * 0.4
+      }
+      // Random timing for next flicker (0.3 to 1.2 seconds)
+      flickerTimer.current = 0.3 + Math.random() * 0.9
+    }
+
+    // Smoothly interpolate to target flicker intensity
+    flickerIntensity.current += (flickerTarget.current - flickerIntensity.current) * 0.3
+
+    // Apply flicker to materials (with minimum brightness)
+    const minBrightness = 0.5
+    const flickerValue = Math.max(minBrightness, flickerIntensity.current)
+    if (glowMaterialRef.current) {
+      glowMaterialRef.current.opacity = 0.2 * flickerValue
+    }
+    if (mainMaterialRef.current) {
+      mainMaterialRef.current.opacity = 0.7 * flickerValue
+      mainMaterialRef.current.emissiveIntensity = 0.8 * flickerValue
     }
   })
 
@@ -50,6 +91,7 @@ function NestedShape({
       <mesh>
         {getGeometry()}
         <meshBasicMaterial 
+          ref={glowMaterialRef}
           color={color}
           transparent 
           opacity={0.2}
@@ -60,6 +102,7 @@ function NestedShape({
       <mesh scale={0.95}>
         {getGeometry()}
         <meshStandardMaterial 
+          ref={mainMaterialRef}
           color={color}
           transparent 
           opacity={0.7}
@@ -87,7 +130,12 @@ function ParallaxShape({
   const groupRef = useRef()
   const baseRotation = useRef({ x: 0, y: 0, z: 0 })
   const mouseRotation = useRef({ x: 0, y: 0 })
-  const basePosition = useRef(position)
+  const basePosition = useRef([...position])
+  const glowMaterialRef = useRef()
+  const mainMaterialRef = useRef()
+  const flickerTimer = useRef(Math.random() * 4)
+  const flickerIntensity = useRef(1.0)
+  const flickerTarget = useRef(1.0)
 
   useFrame((state, delta) => {
     if (meshRef.current && groupRef.current) {
@@ -115,11 +163,47 @@ function ParallaxShape({
       
       // Parallax effect based on scroll
       const parallaxOffset = scrollProgress * parallaxDepth * 2
-      const floatOffset = Math.sin(state.clock.elapsedTime + position[0]) * 0.3
+      const floatOffset = Math.sin(state.clock.elapsedTime + basePosition.current[0]) * 0.3
       
       groupRef.current.position.x = basePosition.current[0] + parallaxOffset * 0.5
       groupRef.current.position.y = basePosition.current[1] + parallaxOffset + floatOffset
       groupRef.current.position.z = basePosition.current[2] + parallaxOffset * 0.3
+    }
+
+    // Neon flicker effect
+    flickerTimer.current -= delta
+    if (flickerTimer.current <= 0) {
+      // Random flicker - sometimes dim, sometimes bright, sometimes off
+      const flickerType = Math.random()
+      if (flickerType < 0.1) {
+        // Quick dim (higher minimum)
+        flickerTarget.current = 0.6 + Math.random() * 0.2
+      } else if (flickerType < 0.2) {
+        // Quick bright flash
+        flickerTarget.current = 1.2 + Math.random() * 0.5
+      } else if (flickerType < 0.25) {
+        // Very brief dim (not off, just dimmer)
+        flickerTarget.current = 0.5 + Math.random() * 0.2
+      } else {
+        // Normal brightness
+        flickerTarget.current = 0.8 + Math.random() * 0.4
+      }
+      // Random timing for next flicker (0.3 to 1.2 seconds)
+      flickerTimer.current = 0.3 + Math.random() * 0.9
+    }
+
+    // Smoothly interpolate to target flicker intensity
+    flickerIntensity.current += (flickerTarget.current - flickerIntensity.current) * 0.3
+
+    // Apply flicker to materials (with minimum brightness)
+    const minBrightness = 0.5
+    const flickerValue = Math.max(minBrightness, flickerIntensity.current)
+    if (glowMaterialRef.current) {
+      glowMaterialRef.current.opacity = 0.25 * flickerValue
+    }
+    if (mainMaterialRef.current) {
+      mainMaterialRef.current.opacity = 0.8 * flickerValue
+      mainMaterialRef.current.emissiveIntensity = 0.6 * flickerValue
     }
   })
 
@@ -147,6 +231,7 @@ function ParallaxShape({
         <mesh>
           {getGeometry()}
           <meshBasicMaterial 
+            ref={glowMaterialRef}
             color={color}
             transparent 
             opacity={0.25}
@@ -157,6 +242,7 @@ function ParallaxShape({
         <mesh scale={0.95}>
           {getGeometry()}
           <meshStandardMaterial 
+            ref={mainMaterialRef}
             color={color}
             transparent 
             opacity={0.8}
