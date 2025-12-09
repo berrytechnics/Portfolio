@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
-import BackgroundScene from './components/BackgroundScene'
-import Navigation from './components/Navigation'
-import Hero from './components/Hero'
+import { useEffect, useState } from 'react'
+import './App.css'
 import About from './components/About'
+import BackgroundScene from './components/BackgroundScene'
+import Contact from './components/Contact'
+import Hero from './components/Hero'
+import Navigation from './components/Navigation'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
-import Contact from './components/Contact'
-import './App.css'
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero')
@@ -43,7 +43,10 @@ function App() {
   return (
     <div className="app">
       <div className="canvas-container">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+        <Canvas 
+          camera={{ position: [0, 0, 5], fov: 75 }}
+          style={{ pointerEvents: 'auto' }}
+        >
           <BackgroundScene />
         </Canvas>
       </div>
