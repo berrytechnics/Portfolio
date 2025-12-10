@@ -1,19 +1,19 @@
 import { MeshDistortMaterial } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { memo, useCallback, useMemo, useRef, useState } from "react";
-import { 
-  COLOR_SHIFT_RANGE, 
-  COLOR_SHIFT_SPEED, 
-  FLICKER_DURATION_MAX, 
-  FLICKER_DURATION_MIN, 
-  FLICKER_TIMER_MAX, 
-  FLICKER_TIMER_MIN, 
-  HOVER_LERP, 
-  MOUSE_ROTATION_LERP, 
-  PULSE_AMOUNT, 
-  PULSE_SPEED 
-} from "./constants";
 import { hexToHsl, hslToHex } from "./colorUtils";
+import {
+  COLOR_SHIFT_RANGE,
+  COLOR_SHIFT_SPEED,
+  FLICKER_DURATION_MAX,
+  FLICKER_DURATION_MIN,
+  FLICKER_TIMER_MAX,
+  FLICKER_TIMER_MIN,
+  HOVER_LERP,
+  MOUSE_ROTATION_LERP,
+  PULSE_AMOUNT,
+  PULSE_SPEED
+} from "./constants";
 import { getGeometry } from "./geometryUtils";
 import { NestedShape } from "./NestedShape";
 
@@ -114,11 +114,11 @@ export const ParallaxShape = memo(function ParallaxShape({
         if (flickerType < 0.15) {
           flickerIntensity.current = 0.3 + Math.random() * 0.3;
         } else if (flickerType < 0.3) {
-          flickerIntensity.current = 1.5 + Math.random() * 0.8;
+          flickerIntensity.current = 0.4 + Math.random() * 0.3;
         } else if (flickerType < 0.35) {
           flickerIntensity.current = 0.2 + Math.random() * 0.3;
         } else {
-          flickerIntensity.current = 0.6 + Math.random() * 0.8;
+          flickerIntensity.current = 0.5 + Math.random() * 0.4;
         }
         flickerDuration.current = FLICKER_DURATION_MIN + Math.random() * (FLICKER_DURATION_MAX - FLICKER_DURATION_MIN);
         flickerTimer.current = FLICKER_TIMER_MIN + Math.random() * (FLICKER_TIMER_MAX - FLICKER_TIMER_MIN);
