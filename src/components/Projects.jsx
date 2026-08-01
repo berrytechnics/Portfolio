@@ -94,6 +94,14 @@ function Projects() {
 
   const openSourceProjects = [
     {
+      id: 7,
+      title: '1970 C10 Wiring Diagram',
+      description: 'Interactive factory schematic for a 1970 Chevrolet C10. Components and nets are authored as structured JSON; the client lays them out geographically and auto-routes every wire as an orthogonal SVG harness — with circuit filters, search, and connected-net highlighting across bulkhead pass-throughs. Pure client-side pathfinding with hard clearance, no build step.',
+      technologies: ['JavaScript', 'SVG', 'Pathfinding', 'Computational Geometry', 'JSON Data Model'],
+      github: 'https://github.com/berrytechnics/c10_wiring',
+      website: 'https://berrytechnics.github.io/c10_wiring/',
+    },
+    {
       id: 1,
       title: 'Procedural Planet Generator',
       description: 'A galaxy-scale WebGL-based space game featuring procedurally generated planets. Built with TypeScript and WebGL for immersive 3D space exploration experiences.',
@@ -286,6 +294,16 @@ function Projects() {
                   ))}
                 </div>
                 <div className="project-links">
+                  {project.website && (
+                    <a
+                      href={project.website}
+                      className="project-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                   <a 
                     href={project.github} 
                     className="project-link"
