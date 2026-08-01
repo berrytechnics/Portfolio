@@ -107,6 +107,31 @@ function Projects() {
       description: 'A galaxy-scale WebGL-based space game featuring procedurally generated planets. Built with TypeScript and WebGL for immersive 3D space exploration experiences.',
       technologies: ['TypeScript', 'WebGL', 'Three.js', 'Procedural Generation'],
       github: 'https://github.com/berrytechnics/procedural-planet',
+      website: 'https://procedural-planet.vercel.app',
+    },
+    {
+      id: 8,
+      title: 'Procedural Terrain',
+      description: 'Browser-based procedural terrain demo built with Three.js and simplex noise — orbit-controlled mesh generation with live tuning.',
+      technologies: ['JavaScript', 'Three.js', 'Vite', 'Simplex Noise'],
+      github: 'https://github.com/berrytechnics/procedural-terrain-threejs',
+      website: 'https://berrytechnics.github.io/procedural-terrain-threejs/',
+    },
+    {
+      id: 4,
+      title: 'Solar System Simulation',
+      description: 'Interactive solar system visualization built with JavaScript. Demonstrates 3D graphics and animation capabilities for educational and entertainment purposes.',
+      technologies: ['JavaScript', 'Three.js', 'Vite', 'WebGL'],
+      github: 'https://github.com/berrytechnics/solar-system',
+      website: 'https://berrytechnics.github.io/solar-system/',
+    },
+    {
+      id: 9,
+      title: 'Gumby Signage Builder',
+      description: 'Classic-car show poster / signage builder for Cruising the Coast — client-side layout tools with export via html2canvas.',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      github: 'https://github.com/berrytechnics/gumby',
+      website: 'https://berrytechnics.github.io/gumby/',
     },
     {
       id: 2,
@@ -123,13 +148,6 @@ function Projects() {
       github: 'https://github.com/berrytechnics/weather-vue',
     },
     {
-      id: 4,
-      title: 'Solar System Simulation',
-      description: 'Interactive solar system visualization built with JavaScript. Demonstrates 3D graphics and animation capabilities for educational and entertainment purposes.',
-      technologies: ['JavaScript', '3D Graphics', 'Animation', 'WebGL'],
-      github: 'https://github.com/berrytechnics/solar-system',
-    },
-    {
       id: 5,
       title: 'NEMA Space Tracker',
       description: 'An Arduino project implementing a star-tracker for astrophotography, built around a NEMA-17 stepper motor. Combines hardware and software for precise astronomical tracking.',
@@ -142,6 +160,7 @@ function Projects() {
       description: 'A TypeScript application providing guidance for vegetable planting. Helps users plan and manage their gardening activities with data-driven recommendations.',
       technologies: ['TypeScript', 'Data Management', 'User Interface'],
       github: 'https://github.com/berrytechnics/Vegetable-Planting-Guide',
+      website: 'https://vegguide.netlify.app/',
     },
   ]
 
