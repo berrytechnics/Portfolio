@@ -1,6 +1,5 @@
 import './Projects.css'
 import techrxImage from '../assets/images/techrxrepair.png'
-import figueroasImage from '../assets/images/figueroasrecreation.png'
 import repairtixImage from '../assets/images/repairtix.png'
 
 function Projects() {
@@ -53,15 +52,6 @@ function Projects() {
       website: 'https://www.techrxrepair.com/',
       image: techrxImage,
     },
-    {
-      id: 2,
-      title: 'Figueroa\'s Recreation',
-      company: 'Client Project',
-      description: 'Developed a commercial playground equipment website using Astro and React. Features product galleries, quote system, and comprehensive service information. Designed for schools, parks, and community centers with focus on safety, quality, and custom solutions.',
-      technologies: ['Astro', 'React', 'TypeScript', 'Responsive Design'],
-      website: 'https://figueroasrecreation.pages.dev/',
-      image: figueroasImage,
-    },
   ]
 
   const products = [
@@ -93,6 +83,14 @@ function Projects() {
   ]
 
   const openSourceProjects = [
+    {
+      id: 10,
+      title: 'Driftr',
+      description: 'Browser space-flight game built with React, Three.js, and React Three Fiber. Pilot a ship through a compressed Sol system — mine the asteroid belt, sell cargo at Thalassa Station, fight bandits, and install it as a PWA.',
+      technologies: ['React', 'TypeScript', 'Three.js', 'React Three Fiber', 'Vite', 'PWA'],
+      github: 'https://github.com/berrytechnics/driftr',
+      website: 'https://berrytechnics.github.io/driftr/',
+    },
     {
       id: 7,
       title: '1970 C10 Wiring Diagram',
